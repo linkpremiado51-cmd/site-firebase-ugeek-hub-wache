@@ -346,7 +346,7 @@
       }
 
       function carregarTudoRealTime() {
-        onSnapshot(collection(db, "wache.web.app/animes_filmes_series_games_noticias/chainsaw_man.html"), (snapshot) => {
+        onSnapshot(collection(db, "wache.web.app/animes_filmes_series_games_noticias/chainsaw_man"), (snapshot) => {
           todasAsNoticias = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
           todasAsNoticias.sort((a, b) => (a.ordem || 999) - (b.ordem || 999));
           if(todasAsNoticias.length > 0) document.getElementById('novo-artigo-titulo').innerText = todasAsNoticias[0].titulo;
