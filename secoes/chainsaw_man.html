@@ -101,7 +101,7 @@
       window.registrarInteracao = async (docId, tipoAcao) => {
           try {
               const vid = getVisitorId();
-              const ref = doc(db, "wache.web.app/animes_filmes_series_games_noticias/chainsaw_man.html", docId, "visitantes", vid);
+              const ref = doc(db, "wache.web.app/animes_filmes_series_games_noticias/chainsaw_man", docId, "visitantes", vid);
               await setDoc(ref, {
                   lastActive: serverTimestamp(),
                   actions: arrayUnion({ type: tipoAcao, ts: Date.now() })
@@ -182,14 +182,14 @@
 
       async function incrementarVisualizacao(idNoticia) {
         try {
-          const noticiaRef = doc(db, "wache.web.app/animes_filmes_series_games_noticias/chainsaw_man.html", idNoticia);
+          const noticiaRef = doc(db, "wache.web.app/animes_filmes_series_games_noticias/chainsaw_man", idNoticia);
           await updateDoc(noticiaRef, { visualizacoes: increment(1) });
         } catch(err) {}
       }
 
       window.curtirNoticia = async (idNoticia) => {
         try {
-          const noticiaRef = doc(db, "wache.web.app/animes_filmes_series_games_noticias/chainsaw_man.html", idNoticia);
+          const noticiaRef = doc(db, "wache.web.app/animes_filmes_series_games_noticias/chainsaw_man", idNoticia);
           await updateDoc(noticiaRef, { curtidas: increment(1) });
         } catch(err) {}
       };
